@@ -1,5 +1,4 @@
 #!/bin/groovy
-#Defining global envirnment variable below
 pipeline {
     agent any
     stages {
