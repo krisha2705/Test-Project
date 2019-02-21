@@ -22,7 +22,7 @@ pipeline  {
            withMaven(maven : 'apache-maven-3.6.0')
                           {
                                   bat 'set'
-                                  echo "$JAVA_HOME"
+                                  print "$JAVA_HOME"
                                   bat 'mvn clean package'
        }
                   }
