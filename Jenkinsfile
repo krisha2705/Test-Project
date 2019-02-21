@@ -1,9 +1,8 @@
 #!/bin/groovy
+def JAVA_HOME
 pipeline  {
         agent any
-        environment {
-  JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_202"
-}
+        
         stages  {
                
                 stage('SCM checkout') {
@@ -24,6 +23,7 @@ pipeline  {
            withMaven(maven : 'apache-maven-3.6.0')
                           {
                                   bat 'set' 
+                                  def JAVA_HOME = 'C:\Program Files\Java\jdk1.8.0_202'
                                   bat 'mvn clean package'
        }
                   }
