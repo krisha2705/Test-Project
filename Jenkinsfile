@@ -4,12 +4,14 @@ pipeline  {
         stages  {
  stage('Build') {
         steps {
-           echo "build stage"
+           withMaven(maven : 'maven-3.6.0')
+           sh 'mvn clean compile'
        }
        }
        stage ('Test')  {
        steps {
-           echo "test stage"
+           withMaven(maven : 'maven-3.6.0')
+           sh 'mvn test'
 
        }
        }
