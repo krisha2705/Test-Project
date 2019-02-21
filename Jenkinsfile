@@ -14,6 +14,7 @@ pipeline  {
                                   sh 'printnv'
                                   sh 'mvn clean package'
        }
+                  }
        }
        stage ('Test')  {
        steps {
