@@ -1,6 +1,10 @@
 #!/bin/groovy
 pipeline  {
         agent any
+        environment {
+        JAVA_HOME = 'true'
+    }
+
         stages  {
                
                 stage('SCM checkout') {
