@@ -10,13 +10,13 @@ pipeline  {
                 stage('Build') {
                   steps {
            withMaven(maven : 'apache-maven-3.6.0')
-           sh 'mvn clean package'
+           bat 'mvn clean package'
        }
        }
        stage ('Test')  {
        steps {
            withMaven(maven : 'apache-maven-3.6.0')
-           sh 'mvn test'
+           bat 'mvn test'
 
        }
        }
