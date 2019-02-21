@@ -19,19 +19,19 @@ pipeline {
           stage('Compile-Stage') {
    steps {
           echo "Compiling Code"       
-          sh "${mvnHome}/bin/mvn clean compile"
+          "${mvnHome}\mvn clean compile"
          }
 }
           stage('Testing-Stage') {
    steps {
 	  echo "Testing Code"
-          sh "${mvnHome}/bin/mvn test"
+          "${mvnHome}\mvn test"
          }
 }
           stage('Deployment-Stage') {
     steps {
 	  echo "Deploying project"
-          sh "${mvnHome}/bin/mvn deploy"
+          "${mvnHome}\mvn deploy"
    }
   }
  }
