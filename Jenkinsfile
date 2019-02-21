@@ -1,37 +1,39 @@
 #!/bin/groovy
-def mvnHome
+#Defining global envirnment variable below
 pipeline {
     agent any
     stages {
-	stage('Initialize the variable') {
- steps {
-	script {
-	mvnHome = tool name: 'apache-maven-3.6.0', type: 'maven'
-	}
-    }
-}
+
           stage('SCM Checkout') {
   steps {
+          script {
           echo "Pulling code from repo...."
-          git branch: 'master', credentialsId: '64c944c0-c872-476c-a81a-37178b9c8487', url: 'https://github.com/krisha2705/Test-Project/' 
+          git branch: 'master', credentialsId: 'b943f49a-7aec-4b06-adb4-815ce4abe3a2', url: 'https://del.tools.publicis.sapient.com/bitbucket/projects/BAET/repos/baet/browse/CodeQuality-MappingFile' 
         }
+     }
 }
           stage('Compile-Stage') {
    steps {
+          script {
           echo "Compiling Code"       
-          "${mvnHome}\mvn clean compile"
+          bat '"C:\apache-maven-3.6.0\bin\mvn clean compile"'
          }
+     }
 }
           stage('Testing-Stage') {
    steps {
+	  script {
 	  echo "Testing Code"
-          "${mvnHome}\mvn test"
+          bat '"C:\apache-maven-3.6.0\bin\mvn clean compile"'
          }
+      }
 }
           stage('Deployment-Stage') {
     steps {
+           script {
 	  echo "Deploying project"
-          "${mvnHome}\mvn deploy"
+          bat '"C:\apache-maven-3.6.0\bin\mvn clean compile"'
+}
    }
   }
  }
