@@ -22,7 +22,7 @@ pipeline  {
            withMaven(maven : 'apache-maven-3.6.0')
                           {
                                   bat 'set' 
-                                  bat 'mvn -B -DskipTests clean package'
+                                  bat 'mvn clean package'
        }
                   }
        }
