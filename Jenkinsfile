@@ -1,19 +1,32 @@
 #!/bin/groovy
 pipeline {
-    agent any
-    stages {
-          
-          stage('Compile-Stage') {
-          //def mvnHome = tool name: 'apache-maven-3.6.0', type: 'maven'
-          sh "mvn clean compile"
-  }
-          stage('Testing-Stage') {
-          //def mvnHome = tool name: 'apache-maven-3.6.0', type: 'maven'
-          sh "mvn test"
-}
-          stage('Deployment-Stage') {
-          //def mvnHome = tool name: 'apache-maven-3.6.0', type: 'maven'
-          sh "mvn deploy"
-  }
- }
+  agent any
+
+   stages {
+      stage ('Compile Stage') {
+         steps {
+              withMaven('maven : 'maven-3.6.0') {
+
+                 sh 'mvn clean compile'
+		}
+	    }
+       }
+	stage ('Testing Stage') {
+	  steps {
+   		withMaven('maven : 'maven-3.6.0') {
+
+                 sh 'mvn test'
+		}
+	    }
+        }
+
+	stage ('Deployment Stage') {
+	    steps {
+		  withMaven('maven : 'maven-3.6.0') {
+
+                 sh 'mvn test'
+		}
+	     }
+         }
+    }
 }
