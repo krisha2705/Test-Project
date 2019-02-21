@@ -19,7 +19,7 @@
 			</plugin>
 
 			<!-- Sources and Javadoc artifacts -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
 				<version>2.2.1</version>
@@ -31,8 +31,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<!--  commented by Yogesh
+			</plugin> --> 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -46,7 +45,6 @@
 					</execution>
 				</executions>
 			</plugin>
-                              Commented by Yogesh-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
