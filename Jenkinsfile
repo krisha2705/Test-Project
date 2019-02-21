@@ -13,25 +13,22 @@ pipeline {
 }
           stage('Compile-Stage') {
    steps {
-          script {
-          echo "Compiling Code"       
-           bat '"cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../.."'
+          script {       
+          cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../..
          }
      }
 }
           stage('Testing-Stage') {
    steps {
 	  script {
-	  echo "Testing Code"
-          bat '"cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../.."'
+          cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../..
          }
       }
 }
           stage('Deployment-Stage') {
     steps {
            script {
-	  echo "Deploying project"
-          bat '"cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../.."'
+          cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../..
 }
    }
   }
