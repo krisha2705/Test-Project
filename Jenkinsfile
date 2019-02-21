@@ -10,7 +10,9 @@ pipeline  {
                 stage('Build') {
                   steps {
            withMaven(maven : 'apache-maven-3.6.0')
-           sh 'mvn clean package'
+                          {
+                                  sh 'printnv'
+                                  sh 'mvn clean package'
        }
        }
        stage ('Test')  {
