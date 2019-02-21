@@ -3,8 +3,7 @@ pipeline {
     agent any
     stages {
           stage('SCM Checkout') {
-          git 'https://del.tools.publicis.sapient.com/bitbucket/projects/BAET/repos/baet/browse/CodeQuality-MappingFile'
-	  credentials('Lion@12345')
+          git 'https://github.com/krisha2705/Test-Project.git
 }
           stage('Compile-Stage') {
           //def mvnHome = tool name: 'apache-maven-3.6.0', type: 'maven'
