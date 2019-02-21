@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<sections>
+		<section id="test">Abcd</section>
+	</sections>
+
+	<rules>
+		<rule id="rule1">rule</rule>
+	</rules>
+</config>

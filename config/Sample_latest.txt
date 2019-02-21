@@ -1,0 +1,208 @@
+  Input Standards Association                                                                       Output Standards Association
+ 
+  Agency :                                                                                          Agency :
+  Version :                                                                                         Version :
+  Transaction Set :                                                                                 Transaction Set :
+  Release :                               65535                                                     Release :                                 65535
+  Functional Group :                                                                                Functional Group :
+ 
+ 
+INPUT Branching Diagram
+  -----------------------
+ 
+                        Name                         M/C     Min Use      Max Use        Description
+ 
+  Element ActionPerform*                              M               1           1
+     Content Particle Particle_1*                     C               0           1 Choice
+        Element Action*                               C               0           1 Action
+           Pcdata*                                    C               0           1
+        Element TEMP_Action*                          C               0           1 XXXXX
+           Attribute*                                 C               0           1
+ 
+OUTPUT Branching Diagram
+  ------------------------
+ 
+                        Name                         M/C     Min Use      Max Use        Description
+ 
+  RestAPIJobFile*                                     M               1           1
+     Segment CreateLoginJob*                          C               0           1
+     Segment CreateOnboardJob*                        C               0           1
+     Segment CreateStatusJob*                         C               0           1
+     Segment CreateAllUpdateJob*                      C               0           1
+ 
+  INPUT Record Details
+  --------------------
+ 
+  Pcdata Action*                                                                  Conditional                                           0             1
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                              C         0     256 String
+ 
+  Attribute TEMP_Action*                                                          Conditional                                           0             1
+ 
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Create_Login_Job_Temp*                                                                        C         0     256 String
+                              XXXXXXxx                                                  INVALID               IMP
+  Create_Onboard_Job_Temp*                                                                      C         0     256 String
+                              XXXXXXxx                                                  INVALID               IMP
+  Create_Status_Job_Temp*                                                                       C         0     256 String
+                              XXXXXXxx                                                  INVALID               IMP
+  Create_AllUpdate_Job_Temp*                                                                    C         0     256 String
+                              XXXXXXxx                                                  INVALID               IMP
+ 
+  OUTPUT Record Details
+  ---------------------
+ 
+  Segment CreateLoginJob*                 Tag                                     Conditional                                           0             1
+ 
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  CreateTheLoginJob*                                                                            C         0   65535 String
+ 
+  Segment CreateOnboardJob*               Tag                                     Conditional                                           0             1
+ 
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  CreateTheOnboardJob*                                                                          C         0   65535 String
+   
+  Segment CreateStatusJob*                Tag                                     Conditional                                           0             1
+   
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  CreateTheStatusJob*                                                                           C         0   65535 String
+   
+  Segment CreateAllUpdateJob*             Tag                                     Conditional                                           0             1
+   
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  CreateTheAllUpdateJob*                                                                        C         0   65535 String
+   
+  Mapping Information
+  -------------------
+   
+  Element TEMP_Action*
+  --------------------
+  Create_Login_Job_Temp*                    ----->    CreateLoginJob*             CreateTheLoginJob
+  Create_Onboard_Job_Temp*                  ----->    CreateOnboardJob*           CreateTheOnboardJob
+  Create_Status_Job_Temp*                   ----->    CreateStatusJob*            CreateTheStatusJob
+  Create_AllUpdate_Job_Temp*                ----->    CreateAllUpdateJob*         CreateTheAllUpdateJob
+  
+  Extended Rules
+  --------------
+   
+  Pre-Session
+  //******Created By Jatin Patar 18/04/2018******//
+  String[256] var_RestApiJob,var_client_id, var_grant_type,var_username,var_password,var_access_token,var_token_type,var_TPP_ID,var_Action,var_xcorrelationid;
+  object ob_date,ob_format;
+   
+  var_RestApiJob="";
+  var_client_id="";
+  var_grant_type="";
+  var_username="";
+  var_password="";
+  var_access_token="";
+  var_token_type="";
+  var_TPP_ID="";
+  var_Action="";
+  var_xcorrelationid="";
+   
+   
+  //Obj_UniqueNumber = new("java.util.Random");
+  //var_xcorrelationid = Obj_UniqueNumber.nextInt();
+   
+
+  RestAPIJobFile.CreateTheAllUpdateJobfor1 
+  ActionPerform   
+  
+  select xpathresult into var_client_id from processdata where xpath = "/ProcessData/RestAPI/client_id/text()";
+  select xpathresult into var_grant_type from processdata where xpath = "/ProcessData/RestAPI/grant_type/text()";
+  select xpathresult into var_username from processdata where xpath = "/ProcessData/RestAPI/username/text()";
+  select xpathresult into var_password from processdata where xpath = "/ProcessData/RestAPI/password/text()";
+  select xpathresult into var_access_token from processdata where xpath = "/ProcessData/RestAPI/access_token/text()";
+  select xpathresult into var_token_type from processdata where xpath = "/ProcessData/RestAPI/token_type/text()";
+  select xpathresult into var_TPP_ID from processdata where xpath = "/ProcessData/RestAPI/TPP_ID/text()";
+  
+ 
+  cerror(3141,Flag_Batch_Rej,"fth");			//Comments   
+  
+  while g = 1 do
+     begin
+
+     end
+  
+  MessageBOX("This is Wrong 1");
+  RestAPIJobFile.CreateTheAllUpdateJobfor2
+  MessageBOX("This is Wrong 2"); 
+  RestAPIJobFile.CreateTheAllUpdateJobfor3
+  //********************Testing********************
+   
+  Action.Action
+  //*******************Ready For mapping********************
+   
+  var_Action=#Action;
+  
+  Choice:1.Choice:1
+    
+  if #Action = "Login" then
+  #Create_Login_Job_Temp ="yes";
+  
+  //cerror(3161,Flag_Batch_Rej,"aes");   
+  cerror(3141,Flag_Batch_Rej,"fth");			//Comments   
+  
+  while g = 2 do
+     begin
+
+     end
+  
+  MessageBOX("This is Wrong 3");
+  
+  if #Action = "Onboard" then
+  #Create_Onboard_Job_Temp ="yes";
+  
+  Choice.Choice 
+     
+  if #Action = "status" then
+  #Create_Status_Job_Temp ="yes";
+  
+  //cerror(3118,Flag_Batch_Rej,"XYZ");   
+  cerror(3110,Flag_Batch_Rej,"ABC");			//Comments
+  
+  while v >= 3 do
+     begin
+
+     end 
+     
+  if #Action = "AllUpdate" then
+  #Create_AllUpdate_Job_Temp ="yes";
+  RestAPIJobFile.CreateTheAllUpdateJobfor4 
+ // MessageBOX("This is Wrong 4");   
+   
+  RestAPIJobFile.CreateTheLoginJob
+  #CreateTheLoginJob="username="+var_username+"&"+"client_id="+var_client_id+"&"+"grant_type="+var_grant_type+"&"+"password="+var_password;
+  
+  Action.Action
+     
+  //cerror(3111,Flag_Batch_Rej,"XYZ");           
+  cerror(3115,Flag_Batch_Rej,"PQR");
+
+   while q < a do
+     begin
+
+     end	 
+   
+  RestAPIJobFile.CreateTheOnboardJob
+  #CreateTheOnboardJob="x-correlation-id : "+var_xcorrelationid+"^0D"+"^0A"+"authorization : "+var_token_type+" "+var_access_token;
+   
+  RestAPIJobFile.CreateTheStatusJob
+  #CreateTheStatusJob="x-correlation-id : "+var_xcorrelationid+"^0D"+"^0A"+"authorization : "+var_token_type+" "+var_access_token;
+  RestAPIJobFile.CreateTheAllUpdateJob
+  On Begin
+  
+ 
+  akfskas  MessageBOX
+  aksdlka
+  
+  On END
+  #CreateTheAllUpdateJob="x-correlation-id : "+var_xcorrelationid+"^0D"+"^0A"+"authorization : "+var_token_type+" "+var_access_token;
+	 
+  while q < 4 do  
+  
+  MessageBOX("This is Wrong 5");   MessageBOX("This is Wrong 6");
+  
+  Codelists
+  ---------

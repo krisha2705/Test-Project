@@ -1,0 +1,7 @@
+{
+"logdirectory":"logs/",
+"outputdirectory":"reports/",
+"outputformat":"JSON",
+"reportname":"MappingFileCodeQuality",
+"violationlevels": {"whilefunction":"ERROR","messagebox":"ERROR","cerror":"WARN"}
+}  

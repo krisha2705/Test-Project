@@ -1,0 +1,21 @@
+[
+	{	"description":"While statements should not contain comparasion with hard coded literals",		
+		"name":"WHILE",
+		"regex":"(^\\s*While)(.*)(\\s+)([\\\\s|>|<|=|!]+)(\\s*)(\\d+)(\\s*)(Do)",
+		"casesensitive":"N",
+		"classname":"org.barclays.bfg.mappingfiles.codequality.rules.PatternRule"		
+	},
+	{	"description":"Usage of MessageBox is not permitted",		
+		"name":"MESSAGEBOX",
+		"regex":"(MessageBox)(\\s*)(\\()(.*)(\\))",
+		"casesensitive":"N",
+		"classname":"org.barclays.bfg.mappingfiles.codequality.rules.PatternRule"		
+	},
+	{	"description":"Cerror statements should not be added in any new code",		
+		"name":"CERROR",
+		"regex":"(cerror)(\\s*)(\\()(.*)(\\))",
+		"casesensitive":"N",
+		"classname":"org.barclays.bfg.mappingfiles.codequality.rules.PatternRule"		
+	}
+	
+]
