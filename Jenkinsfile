@@ -1,36 +1,17 @@
 #!/bin/groovy
-pipeline {
-    agent any
-    stages {
+pipeline  {
+        agent any
+        stages  {
+ stage('Build') {
+        steps {
+           echo "build stage"
+       }
+       }
+       stage ('Test')  {
+       steps {
+           echo "test stage"
 
-          stage('SCM Checkout') {
-  steps {
-          script {
-          echo "Pulling code from repo...."
-          git branch: 'master', credentialsId: 'b943f49a-7aec-4b06-adb4-815ce4abe3a2', url: 'https://del.tools.publicis.sapient.com/bitbucket/projects/BAET/repos/baet/browse/CodeQuality-MappingFile' 
-        }
-     }
+       }
+       }
 }
-          stage('Compile-Stage') {
-   steps {
-          script {       
-          cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../..
-         }
-     }
-}
-          stage('Testing-Stage') {
-   steps {
-	  script {
-          cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../..
-         }
-      }
-}
-          stage('Deployment-Stage') {
-    steps {
-           script {
-          cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../..
-}
-   }
-  }
- }
 }
