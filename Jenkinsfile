@@ -15,7 +15,7 @@ pipeline {
    steps {
           script {
           echo "Compiling Code"       
-          bat '"C:\apache-maven-3.6.0\bin\mvn clean compile"'
+           bat '"cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../.."'
          }
      }
 }
@@ -23,7 +23,7 @@ pipeline {
    steps {
 	  script {
 	  echo "Testing Code"
-          bat '"C:\apache-maven-3.6.0\bin\mvn clean compile"'
+          bat '"cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../.."'
          }
       }
 }
@@ -31,7 +31,7 @@ pipeline {
     steps {
            script {
 	  echo "Deploying project"
-          bat '"C:\apache-maven-3.6.0\bin\mvn clean compile"'
+          bat '"cd C:\apache-maven-3.6.0\bin\ && mvn clean compile && cd../.."'
 }
    }
   }
