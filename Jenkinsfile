@@ -18,12 +18,6 @@ pipeline  {
        }
                   }
        }
-       stage ('Test')  {
-       steps {
-           withMaven(maven : 'apache-maven-3.6.0')
-           bat 'mvn test'
-
-       }
-       }
+      
 }
 }
