@@ -9,7 +9,12 @@ pipeline  {
                 git branch: 'master', credentialsId: '64c944c0-c872-476c-a81a-37178b9c8487', url: 'https://github.com/krisha2705/Test-Project/'
                       }
                 }
-    
+          
+                 stage ('Env')  {
+                         steps {
+                         bat 'set'
+       }
+       }
                 stage('Build') {
                         steps {
            withMaven(maven : 'apache-maven-3.6.0')
@@ -18,13 +23,13 @@ pipeline  {
                                   bat 'mvn -B -DskipTests clean install'
        }
                   }
-                  
+                }           
                  stage ('Test')  {
                          steps {
            withMaven(maven : 'apache-maven-3.6.0')
            bat 'mvn test'
        }
        }
-                }
+               
 }
 }
