@@ -11,7 +11,7 @@ pipeline  {
                 }
     
                 stage('Build') {
-                       steps {
+                        steps {
            withMaven(maven : 'apache-maven-3.6.0')
                           {
                                   bat 'set'
