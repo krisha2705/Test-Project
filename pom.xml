@@ -44,7 +44,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>  -->
+			</plugin>  
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -61,7 +61,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 
 			<!-- Nexus staging, https://oss.sonatype.org/ -->
 			<plugin>
@@ -74,7 +74,7 @@
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
 				</configuration>
-			</plugin>
+			</plugin> 
 
 			<!-- Code coverage -->
 			<plugin>
@@ -96,7 +96,7 @@
 				<artifactId>coveralls-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+	</build> 
 	<dependencies>
 		<dependency>
 			<groupId>commons-cli</groupId>
