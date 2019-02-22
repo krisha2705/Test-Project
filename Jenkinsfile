@@ -11,15 +11,16 @@ pipeline  {
                 }
     
                 stage('Build') {
-                  steps {
+                       steps {
            withMaven(maven : 'apache-maven-3.6.0')
                           {
+                                  bat 'set'
                                   bat 'mvn -B -DskipTests clean install'
        }
                   }
                   
-       stage ('Test')  {
-       steps {
+                 stage ('Test')  {
+                         steps {
            withMaven(maven : 'apache-maven-3.6.0')
            bat 'mvn test'
        }
