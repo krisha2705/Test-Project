@@ -14,7 +14,7 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<executable>C:\Program Files\Java\jdk1.8.0_202\bin\javac</executable>
+		<executable>C:\Program Files\Java\jdk1.8.0_202\bin\javac</executable>
 				</configuration>
 			</plugin>
 
@@ -141,20 +141,20 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.json/json  -->
-		<!-- <dependency>
+		 <dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20180813</version>
-		</dependency> -->
+		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
-		<!-- <dependency>
+		 <dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
-		-->
+		
 		
 	</dependencies>
 </project>
